@@ -36,6 +36,13 @@ public class SolicitarC extends HttpServlet {
         String lugar = request.getParameter("lugar");
         String motivo = request.getParameter("motivo");
         
+        if(tiempo.length != 0 && lugar.length != 0 && motivo.length.length != 0){
+            
+        } else{
+            request.getRequestDispatcher("Registrar.jsp").include(request, response);
+        }
+        }
+        }
         //co.conectar();
     }
     
