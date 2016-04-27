@@ -33,6 +33,8 @@ public class SolicitarC extends HttpServlet {
         PrintWriter out = response.getWriter();
         
         String tiempo = request.getParameter("tiempo");
+        String lugar = request.getParameter("lugar");
+        String motivo = request.getParameter("motivo");
         
         //co.conectar();
     }
