@@ -6,7 +6,6 @@
 package Servlet;
 
 import Controlador.Conexion;
-import Modelo.Usuario;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.logging.Level;
@@ -21,9 +20,10 @@ import javax.servlet.http.HttpSession;
  *
  * @author Foalster
  */
-public class IniciarSesionC extends HttpServlet {
-
+public class CrearObjeto extends HttpServlet {
+    
     Conexion co = new Conexion();
+    
     
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -36,39 +36,17 @@ public class IniciarSesionC extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException, Exception {
-        
         response.setContentType("text/html;charset=UTF-8");
         PrintWriter out = response.getWriter();
         
-        String usuario = request.getParameter("usuario");
-        String password = request.getParameter("password");
+        HttpSession session=request.getSession();
+        String usuario = (String) session.getAttribute("usuario");
+        
+        String marca = request.getParameter("marca");
+        String modelo = request.getParameter("modelo");
         co.conectar();
-        Usuario usu = new Usuario();
         
-        
-        if(co.iniciarSesion(usuario,password)){
-            HttpSession session=request.getSession();
-            session.setAttribute("usuario",usuario); 
-            request.getRequestDispatcher("Inicio.jsp").include(request, response);  
-            //response.sendRedirect("Inicio.jsp");
-        } else {
-            out.println("<!DOCTYPE html>");
-            out.println("<html>");
-            out.println("<head>");
-            out.println("<title>Servlet NewServlet</title>");            
-            out.println("</head>");
-            out.println("<body>");
-            out.println("<div class=\"alert alert-danger\" role=\"alert\">\n" +
-                        "  <span class=\"glyphicon glyphicon-exclamation-sign\" aria-hidden=\"true\"></span>\n" +
-                        "  <span class=\"sr-only\">Error:</span>\n" +
-                        "  Datos proporcionados inválidos\n" +
-                        "</div>");
-            out.println("</body>");
-            out.println("</html>");
-            request.getRequestDispatcher("IniciarSesion.jsp").include(request, response); 
-        }
-        
-        
+        if(co.crear(0, marca, modelo))
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
@@ -86,7 +64,7 @@ public class IniciarSesionC extends HttpServlet {
         try {
             processRequest(request, response);
         } catch (Exception ex) {
-            Logger.getLogger(IniciarSesionC.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(CrearObjeto.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 
@@ -104,7 +82,7 @@ public class IniciarSesionC extends HttpServlet {
         try {
             processRequest(request, response);
         } catch (Exception ex) {
-            Logger.getLogger(IniciarSesionC.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(CrearObjeto.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 

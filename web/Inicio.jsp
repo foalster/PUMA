@@ -67,7 +67,21 @@
                 //System.out.println("A");
                 SolicitarC.start(boton);
             %>
-
+            
+            
+             
+            
         </table>
+    
+    <div class = "container">
+            <div class="wrapper">
+                <form method="post" action="CrearObjeto">
+                    <h1 class="form-signin-heading">Crear Objeto</h1>
+                    Marca: <input type="text" name="marca"/><br/>
+                    Modelo: <input type="text" name="modelo"/><br/>
+                    <input type="submit" value="Crear"/>
+                </form>
+            </div>
+        </div>
     </body>
 </html>

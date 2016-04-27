@@ -256,4 +256,46 @@ public class Conexion {
         return b;
     }
     
+    public ArrayList getUsuario(String idUsuario) throws SQLException {
+        ArrayList usuarios = new ArrayList();
+        try {
+            PreparedStatement ps = con.prepareStatement("SELECT idUsuario From Usuario Where idUsuario = " + idUsuario);
+            ResultSet rs = ps.executeQuery();
+            while (rs.next()) {
+                usuarios.add(rs.getString("idUsuario"));
+            }
+            rs.close();
+        } catch (Exception ex) {
+            System.out.println("Error al recuperar los datos del Usuario "
+                    + ex.getMessage());
+        }
+        return usuarios;
+    }
+    
+    public boolean eliminaUsuario(int idUsuario) throws SQLException {
+        boolean b = false;
+        try {
+            String seleccio = "DELETE FROM Usuario WHERE idUsuario="+idUsuario;
+            PreparedStatement ps = con.prepareStatement(seleccio);
+            ps.executeUpdate();
+            b = true;
+        } catch (Exception ex) {
+            System.out.println("Error al elminar Usuario: " + ex.getMessage());
+        }
+        return b;
+    }
+    
+    public boolean editUsuario(int idUsuario, String usuario, String password, String nombre, String appat, String apmat, String fechanac, String genero, String email) {
+        boolean b = false;
+        try {
+            String sql = "Update Usuario SET Values( usuario = '"+usuario+"', password = '"+password+"', nombre = '"+nombre+"', appat = '"+appat+"', apmat = '"+apmat+"', fechanac = '"+fechanac+"', genero = '"+genero+"', email = '"+email+"') where idUsuario ="+idUsuario;
+            PreparedStatement ps = con.prepareStatement(sql);
+            ps.executeUpdate();
+            b = true;
+        } catch (Exception ex) {
+            System.out.println("Error al recuperar los datos de la entidad Usuario "
+                    + ex.getMessage());
+        }
+        return b;
+    }
 }

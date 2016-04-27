@@ -12,6 +12,10 @@
         <servlet-name>SolicitarC</servlet-name>
         <servlet-class>Servlet.SolicitarC</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>CrearObjeto</servlet-name>
+        <servlet-class>Servlet.CrearObjeto</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>IniciarSesionC</servlet-name>
         <url-pattern>/IniciarSesionC</url-pattern>
@@ -23,6 +27,10 @@
     <servlet-mapping>
         <servlet-name>SolicitarC</servlet-name>
         <url-pattern>/SolicitarC</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>CrearObjeto</servlet-name>
+        <url-pattern>/CrearObjeto</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
