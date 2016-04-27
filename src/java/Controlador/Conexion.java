@@ -199,4 +199,61 @@ public class Conexion {
         }
         return true;
     }
+    
+    public boolean crear(int id, String marca, String modelo){
+        try {
+            String query = "INSERT INTO calculadora VALUES('"+marca+"','"+modelo+"',true);";
+            stmt.executeUpdate(query);
+            return true;
+        }  catch (Exception ex) {
+            System.out.println("Error: " + ex.getMessage());
+            return false;
+        }
+    }
+    
+    
+    public ArrayList getCalculadoras(String idprestamista) throws SQLException {
+        ArrayList calculadoras = new ArrayList();
+        try {
+            PreparedStatement ps = con.prepareStatement("SELECT idcalculadora From Calculadora Where idprestamista = " + idprestamista);
+            ResultSet rs = ps.executeQuery();
+            while (rs.next()) {
+                calculadoras.add(rs.getString("idCalculadora"));
+            }
+            rs.close();
+        } catch (Exception ex) {
+            System.out.println("Error al recuperar los datos de la entidad calculadoras "
+                    + ex.getMessage());
+        }
+        return calculadoras;
+    }
+    
+    public boolean eliminaCalculadora(int idcalculadora) throws SQLException {
+        boolean b = false;
+        try {
+            String seleccio = "DELETE FROM calculadora WHERE idcalculadora = ?";
+            PreparedStatement ps = con.prepareStatement(seleccio);
+            ps.setInt(1, idcalculadora);
+            ps.executeUpdate();
+            b = true;
+        } catch (Exception ex) {
+            System.out.println("Error al elminar calculadora: " + ex.getMessage());
+        }
+        return b;
+    }
+    
+    public boolean editCalculadora(int id, String marca, String modelo) {
+        boolean b = false;
+        try {
+            String sql = "Update calculadora SET Values( "+marca+", "+modelo+", true) where id ="+id;
+            PreparedStatement ps = con.prepareStatement(sql);
+            ps.executeUpdate();
+            b = true;
+        } catch (Exception ex) {
+            System.out.println("Error al recuperar los datos de la entidad empleado "
+                    + ex.getMessage());
+        }
+        return b;
+    }
+    
 }
