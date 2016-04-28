@@ -46,7 +46,7 @@ public class CrearObjeto extends HttpServlet {
         String modelo = request.getParameter("modelo");
         co.conectar();
         
-        if(co.crear(0, marca, modelo))
+        //if(co.crear(0, marca, modelo))
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

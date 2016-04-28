@@ -298,4 +298,16 @@ public class Conexion {
         }
         return b;
     }
+    
+    public boolean ocupado(int idcalculadora) throws Exception{
+        try{
+            ArrayList usuarios = new ArrayList();
+            PreparedStatement pst = con.prepareStatement("UPDATE CALCUALDORA SET VALUES(DISPONIBLE = FALSE) WHERE IDCALCULADORA = " + idcalculadora);
+            ResultSet rs = pst.executeQuery();
+            return true;
+        }catch(Exception ex){
+            System.out.println("Exception: " + ex.getMessage());
+        }
+        return false;
+    }
 }

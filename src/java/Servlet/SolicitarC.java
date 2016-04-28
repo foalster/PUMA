@@ -5,8 +5,11 @@
  */
 package Servlet;
 
+import Controlador.Conexion;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -17,7 +20,7 @@ import javax.servlet.http.HttpServletResponse;
  * @author Foalster
  */
 public class SolicitarC extends HttpServlet {
-
+    Conexion co = new Conexion();
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
      * methods.
@@ -28,18 +31,22 @@ public class SolicitarC extends HttpServlet {
      * @throws IOException if an I/O error occurs
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
+            throws ServletException, IOException, Exception {
         response.setContentType("text/html;charset=UTF-8");
         PrintWriter out = response.getWriter();
         
-        String tiempo = request.getParameter("tiempo");
+        //int calcu = request.getParameter("nombre");
         
-        //co.conectar();
+        //calcu = ;
+        
+        
+        co.conectar();
+        //co.ocupado(calcu);
     }
     
     public static void start(int id){
          //Solicitar.jsp;
-         System.out.println(id);
+         System.out.println(id + "5");
      }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
@@ -54,7 +61,11 @@ public class SolicitarC extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        processRequest(request, response);
+        try {
+            processRequest(request, response);
+        } catch (Exception ex) {
+            Logger.getLogger(SolicitarC.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 
     /**
@@ -68,7 +79,11 @@ public class SolicitarC extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        processRequest(request, response);
+        try {
+            processRequest(request, response);
+        } catch (Exception ex) {
+            Logger.getLogger(SolicitarC.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 
     /**
