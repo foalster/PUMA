@@ -35,12 +35,19 @@ public class SolicitarC extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         PrintWriter out = response.getWriter();
         
-        //int calcu = request.getParameter("nombre");
-             
+        String tiempo = request.getParameter("tiempo");
+        String lugar = request.getParameter("lugar");
+        String motivo = request.getParameter("motivo");
         
-        co.conectar();
-        //co.ocupado(calcu);
-    }
+        if(tiempo.length() != 0 && lugar.length() != 0 && motivo.length() != 0){
+            
+        } else{
+            request.getRequestDispatcher("Registrar.jsp").include(request, response);
+        }
+        }
+        
+        //co.conectar();
+    
     
     public static void start(int id){
          //Solicitar.jsp;
