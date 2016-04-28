@@ -36,9 +36,7 @@ public class SolicitarC extends HttpServlet {
         PrintWriter out = response.getWriter();
         
         //int calcu = request.getParameter("nombre");
-        
-        //calcu = ;
-        
+             
         
         co.conectar();
         //co.ocupado(calcu);
