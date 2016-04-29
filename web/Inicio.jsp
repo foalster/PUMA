@@ -29,7 +29,8 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
          <script  type="text/javascript">
                             function reply(clicked_id){
-                                Servlet.start(clicked_id);
+                                idSeleccionada = clicked_id;
+                                //Servlet.start(clicked_id);
                     
                 }
                             </script>
@@ -68,7 +69,7 @@
                 <td>Solicitar</td>
             </tr>
             <%
-                int boton = -1;
+                int nombre = -1;
                 LinkedList<Calculadora> lista = consulta.getCalculadoras();
 
                 consulta.conectar();
@@ -85,7 +86,7 @@
                     out.println("<td>" + lista.get(i).getIdCalculadora() + "</td>");
                     if (lista.get(i).getDisponible()) {
                         out.println("<td>" + "<form action=\"Solicitar.jsp\"  method=\"post\">\n"
-                                + "<input type=\"submit\" value=\"Solicitar\"/ id=" + idSeleccionada + " onClick = \"reply(this.id)\"> \n"
+                                + "<input type=\"submit\" value=\"Solicitar\"/ id=" + nombre + " onClick = \"reply(this.id)\"> \n"
                                 + "</form>"
                                 + "</td>");
                         /**
