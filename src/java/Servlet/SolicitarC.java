@@ -40,7 +40,7 @@ public class SolicitarC extends HttpServlet {
         String motivo = request.getParameter("motivo");
         
         if(tiempo.length() != 0 && lugar.length() != 0 && motivo.length() != 0){
-            
+            String tiempo = request.getParameter("idSeleccionada");
         } else{
             request.getRequestDispatcher("Registrar.jsp").include(request, response);
         }
