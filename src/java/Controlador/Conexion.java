@@ -86,7 +86,7 @@ public class Conexion {
      
     public static boolean checkAlpha(String str) {
         boolean respuesta = false; 
-        if ((str).matches("([a-z]|[A-Z]|\\s)+")) { 
+        if ((str).matches("\\w+\\.?")) { 
             respuesta = true; 
         } 
         return respuesta;

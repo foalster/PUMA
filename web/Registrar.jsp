@@ -43,18 +43,18 @@
             <div class="wrapper">
                 <form method="post" action="Registrar">
                     <h1 class="form-signin-heading">Regístrate</h1>
-                    Usuario: <input type="text" name="usuario"/><br/>
-                    Contraseña: <input type="text" name="password"/><br/>
-                    Nombre(s): <input type="text" name="nombre"/><br/>
-                    Apellido Paterno: <input type="text" name="appat"/><br/>
-                    Apellido Materno: <input type="text" name="apmat"/><br/>
-                    Fecha de Nacimiento: <input type="text" name="fechanac" id="date"><br/>
+                    Usuario: <input type="text" name="usuario"/><br/><br/>
+                    Contraseña: <input type="password" name="password"/><br/>
+                    Nombre(s): <input type="text" name="nombre"/><br/><br/>
+                    Apellido Paterno: <input type="text" name="appat"/><br/><br/>
+                    Apellido Materno: <input type="text" name="apmat"/><br/><br/>
+                    Fecha de Nacimiento: <input type="text" name="fechanac" id="date"><br/><br/>
                     Genero: <select name="genero" required="">
                         <option value="">Seleccione...</option>
                         <option value="H">Hombre</option>
                         <option value="M">Mujer</option>
-                    </select><br/>
-                    Email: <input type="text" name="email"/><br/>
+                    </select><br/><br/>
+                    Email: <input type="text" name="email"/><br/><br/>
                     <input type="submit" value="Registrar"/>
                 </form>
             </div>
