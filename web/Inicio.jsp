@@ -12,7 +12,7 @@
 <%@ page language="java" %>
 <%@ page import = "Modelo.Calculadora"%> 
 <%@ page import = "java.util.LinkedList"%> 
-<%! public int idSeleccionada;%> 
+<%! public int idSeleccionada;%>
 
 <!DOCTYPE html>
 
@@ -30,6 +30,7 @@
          <script  type="text/javascript">
                             function reply(clicked_id){
                                 idSeleccionada = clicked_id;
+                                alert(idSeleccionada);
                                 //Servlet.start(clicked_id);
                     
                 }
@@ -69,14 +70,13 @@
                 <td>Solicitar</td>
             </tr>
             <%
-                int nombre = -1;
+                int nombre = 0;
                 LinkedList<Calculadora> lista = consulta.getCalculadoras();
 
                 consulta.conectar();
                 lista = consulta.getCalculadoras();
                 consulta.desconectar();
                 
-                nombre = 0;
                 for (int i = 0; i < lista.size(); i++) {
                     nombre = lista.get(i).getIdCalculadora();
                     lista.get(i).getIdCalculadora();
@@ -109,6 +109,11 @@
             
             
         </table>
+            <%request.setAttribute("seleccionada", new Integer(idSeleccionada));%>
+            
+    <form action="">
+    <input type="hidden" name="hidden" value=""idSeleccionada >
+    <input type="submit" value="submit"></form>
     
     <div class = "container">
             <div class="wrapper">

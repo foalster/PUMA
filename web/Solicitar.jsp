@@ -21,6 +21,7 @@
     </head>
     
     <body>
+        <p>Me ha llegado <%= request.getAttribute("seleccionada") %></p>
         <%
             HttpSession sessions = request.getSession(false);
             String usuario = (String) sessions.getAttribute("usuario");
@@ -35,7 +36,7 @@
                             <span class="caret"></span></button>
                         <ul class="dropdown-menu">
                             <li><a href="#">Administrar cuenta</a></li>
-                            <li><a href="#">Cerrar Sesión</a></li>
+                            <li><a href="#">Cerrar Sesión </a></li>
                         </ul>
                     </div>
 

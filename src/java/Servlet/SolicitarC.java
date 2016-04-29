@@ -5,6 +5,7 @@
  */
 package Servlet;
 
+
 import Controlador.Conexion;
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -34,15 +35,21 @@ public class SolicitarC extends HttpServlet {
             throws ServletException, IOException, Exception {
         response.setContentType("text/html;charset=UTF-8");
         PrintWriter out = response.getWriter();
+        //String tpm = Inicio.idSeleccionada;
+        Integer variable = (Integer)request.getAttribute("seleccionada");
+        
         
         String tiempo = request.getParameter("tiempo");
         String lugar = request.getParameter("lugar");
         String motivo = request.getParameter("motivo");
         
+        
         if(tiempo.length() != 0 && lugar.length() != 0 && motivo.length() != 0){
-            String tiempo = request.getParameter("idSeleccionada");
+            
+            System.out.println(" aaaa" + variable );
+            response.sendRedirect("Inicio.jsp");
         } else{
-            request.getRequestDispatcher("Registrar.jsp").include(request, response);
+            request.getRequestDispatcher("Solicitar.jsp").include(request, response);
         }
         }
         
