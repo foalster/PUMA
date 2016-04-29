@@ -12,7 +12,7 @@
 <%@ page language="java" %>
 <%@ page import = "Modelo.Calculadora"%> 
 <%@ page import = "java.util.LinkedList"%> 
-<%! public int nombre;%> 
+<%! public int idSeleccionada;%> 
 
 <!DOCTYPE html>
 
@@ -85,7 +85,7 @@
                     out.println("<td>" + lista.get(i).getIdCalculadora() + "</td>");
                     if (lista.get(i).getDisponible()) {
                         out.println("<td>" + "<form action=\"Solicitar.jsp\"  method=\"post\">\n"
-                                + "<input type=\"submit\" value=\"Solicitar\"/ id=" + nombre + " onClick = \"reply(this.id)\"> \n"
+                                + "<input type=\"submit\" value=\"Solicitar\"/ id=" + idSeleccionada + " onClick = \"reply(this.id)\"> \n"
                                 + "</form>"
                                 + "</td>");
                         /**
@@ -98,7 +98,7 @@
                     out.println("</tr>");
                 }
                 //System.out.println("A");
-                SolicitarC.start(boton);
+                //SolicitarC.start(boton);
                 }
             %>
                                 
