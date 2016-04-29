@@ -83,6 +83,14 @@ public class Conexion {
         }
         return true;
     }
+     
+    public static boolean checkAlpha(String str) {
+        boolean respuesta = false; 
+        if ((str).matches("([a-z]|[A-Z]|\\s)+")) { 
+            respuesta = true; 
+        } 
+        return respuesta;
+    } 
     
     public boolean iniciarSesion(String usuario, String password) throws Exception{
         try{

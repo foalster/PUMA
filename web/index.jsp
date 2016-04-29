@@ -15,41 +15,36 @@ and open the template in the editor.
         <title>¡Bienvenido a PUMA!</title> 
         <meta charset="UTF-8">
         <link href="css/styles.css" rel="stylesheet">
+        <link href="css/header.css" rel="stylesheet">        
         <link href="css/bootstrap.min.css" rel="stylesheet">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+        <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
     </head>
     <body>
         
         
-        
-        <div class="container">
-            <h1>¡Bienvenido a PUMA!</h1>
-	<div class="row">
-        <div class="span12">
-            <form id="custom-search-form" class="form-search form-horizontal pull-right">
-                <div class="input-append span12">
-                    <input type="text" class="search-query mac-style" placeholder="Search">
-                    <button type="submit" class="btn"><i class="icon-search"></i></button>
-                </div>
-            </form>
+        <div class="menu">
+            <nav>
+                <ul>
+                    <li><a href="index.jsp">PUMA</a></li>
+                    <a href="Registrar.jsp">Registrar</a>
+                    <a href="IniciarSesion.jsp">Iniciar Sesión</a>
+                                    
+                </ul>
+            </nav>
         </div>
-	</div>
-</div>
         
         
-        
-        <div style="text-align: right;">
-            <form action="IniciarSesion.jsp" method="post">
-                <input type="submit" value="Iniciar Sesion"/>
-            </form>
-            <form action="Registrar.jsp" method="post">
-                <input type="submit" value="Registrar"/>
-            </form>
-            <!--
-            <form method="post" action="Usuarios.jsp">
-                <input type="submit" value="Consulta Usuarios"/>
-            </form>-->
+        <div class="container" style="text-align: left">
+            <h1>¡Bienvenido a PUMA!</h1>     
+        <!--
+        <form method="post" action="Usuarios.jsp">
+        <input type="submit" value="Consulta Usuarios"/>
+        </form>
+        -->
         </div>  
     </body>
 </html>

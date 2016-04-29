@@ -50,15 +50,82 @@ public class Registrar extends HttpServlet {
 
         if (usuario.length() != 0 && password.length() != 0 && nombre.length() != 0 && appat.length() != 0 &&
                 apmat.length() != 0 && genero.length() != 0 && email.length() != 0) {
-            if (!co.checarUsuario(usuario, email))
-                if (co.validarEmail(email)){
-                        co.registrar(usuario, password, nombre, appat, apmat, fechanac, genero, email);
-                        HttpSession session=request.getSession();
-                        session.setAttribute("usuario",usuario); 
-                        request.getRequestDispatcher("Inicio.jsp").include(request, response);
-                        
+            if (!co.checarUsuario(usuario, email)){
+                if(!co.checkAlpha(nombre)){
+                    if(!co.checkAlpha(appat)){
+                        if(!co.checkAlpha(apmat)){
+                            if (co.validarEmail(email)){
+                                co.registrar(usuario, password, nombre, appat, apmat, fechanac, genero, email);
+                                HttpSession session=request.getSession();
+                                session.setAttribute("usuario",usuario); 
+                                request.getRequestDispatcher("Inicio.jsp").include(request, response);
+                            }
+                        }else{
+                            request.getRequestDispatcher("Registrar.jsp").include(request, response);
+                            out.println("<!DOCTYPE html>");
+                            out.println("<html>");
+                            out.println("<head>");
+                            out.println("<title>Servlet NewServlet</title>");            
+                            out.println("</head>");
+                            out.println("<body>");
+                            out.println("<div class=\"alert alert-danger\" role=\"alert\">\n" +
+                                    "  <span class=\"glyphicon glyphicon-exclamation-sign\" aria-hidden=\"true\"></span>\n" +
+                                    "  <span class=\"sr-only\">Error:</span>\n" +
+                                    "  Apellido materno introducido no válido" +
+                                    "</div>");
+                            out.println("</body>");
+                            out.println("</html>");
+                        }
+                    }else{
+                        request.getRequestDispatcher("Registrar.jsp").include(request, response);
+                        out.println("<!DOCTYPE html>");
+                        out.println("<html>");
+                        out.println("<head>");
+                        out.println("<title>Servlet NewServlet</title>");            
+                        out.println("</head>");
+                        out.println("<body>");
+                        out.println("<div class=\"alert alert-danger\" role=\"alert\">\n" +
+                                "  <span class=\"glyphicon glyphicon-exclamation-sign\" aria-hidden=\"true\"></span>\n" +
+                                "  <span class=\"sr-only\">Error:</span>\n" +
+                                "  Apellido paterno introducido no válido" +
+                                "</div>");
+                        out.println("</body>");
+                        out.println("</html>");
                     }
-        }else {
+                }else{
+                    request.getRequestDispatcher("Registrar.jsp").include(request, response);
+                    out.println("<!DOCTYPE html>");
+                    out.println("<html>");
+                    out.println("<head>");
+                    out.println("<title>Servlet NewServlet</title>");            
+                    out.println("</head>");
+                    out.println("<body>");
+                    out.println("<div class=\"alert alert-danger\" role=\"alert\">\n" +
+                            "  <span class=\"glyphicon glyphicon-exclamation-sign\" aria-hidden=\"true\"></span>\n" +
+                            "  <span class=\"sr-only\">Error:</span>\n" +
+                            "  Apellido paterno introducido no válido" +
+                            "</div>");
+                    out.println("</body>");
+                    out.println("</html>");
+                }
+            }else{
+                request.getRequestDispatcher("Registrar.jsp").include(request, response);
+                out.println("<!DOCTYPE html>");
+                out.println("<html>");
+                out.println("<head>");
+                out.println("<title>Servlet NewServlet</title>");            
+                out.println("</head>");
+                out.println("<body>");
+                out.println("<div class=\"alert alert-danger\" role=\"alert\">\n" +
+                        "  <span class=\"glyphicon glyphicon-exclamation-sign\" aria-hidden=\"true\"></span>\n" +
+                        "  <span class=\"sr-only\">Error:</span>\n" +
+                        "  Nombre de usuario o email ya existentes" +
+                        "</div>");
+                out.println("</body>");
+                out.println("</html>");
+            }
+        }else{
+            request.getRequestDispatcher("Registrar.jsp").include(request, response);
             out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
@@ -68,14 +135,11 @@ public class Registrar extends HttpServlet {
             out.println("<div class=\"alert alert-danger\" role=\"alert\">\n" +
                         "  <span class=\"glyphicon glyphicon-exclamation-sign\" aria-hidden=\"true\"></span>\n" +
                         "  <span class=\"sr-only\">Error:</span>\n" +
-                        "  Datos proporcionados inválidos\n" +
+                        "  Por favor, completa el formulario." +
                         "</div>");
             out.println("</body>");
             out.println("</html>");
-            //request.getRequestDispatcher("IniciarSesion.jsp").include(request, response); 
-              //response.sendRedirect("Registrar.jsp");  
-            request.getRequestDispatcher("Registrar.jsp").include(request, response); 
-            }
+        }
     }
         // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
         /**
