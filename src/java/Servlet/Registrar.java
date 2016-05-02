@@ -51,9 +51,9 @@ public class Registrar extends HttpServlet {
         if (usuario.length() != 0 && password.length() != 0 && nombre.length() != 0 && appat.length() != 0 &&
                 apmat.length() != 0 && genero.length() != 0 && email.length() != 0) {
             if (!co.checarUsuario(usuario, email)){
-                if(!co.checkAlpha(nombre)){
-                    if(!co.checkAlpha(appat)){
-                        if(!co.checkAlpha(apmat)){
+                if(co.checkAlpha(nombre)){
+                    if(co.checkAlpha(appat)){
+                        if(co.checkAlpha(apmat)){
                             if (co.validarEmail(email)){
                                 co.registrar(usuario, password, nombre, appat, apmat, fechanac, genero, email);
                                 HttpSession session=request.getSession();
