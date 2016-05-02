@@ -41,7 +41,7 @@
         
         <div class = "container">
             <div class="wrapper">
-                <form method="post" action="Registrar">
+                <form method="post" action="RegistrarC">
                     <h1 class="form-signin-heading">Regístrate</h1>
                     Usuario: <input type="text" name="usuario"/><br/><br/>
                     Contraseña: <input type="password" name="password"/><br/>

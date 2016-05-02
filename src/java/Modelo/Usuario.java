@@ -87,4 +87,8 @@ public class Usuario {
     public void setEmail(String email) {
         this.email = email;
     }
+
+    public void getUsuario(String usuario) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
 }

@@ -5029,7 +5029,6 @@ a.thumbnail.active {
 }
 .alert {
   padding: 15px;
-  margin-bottom: 20px;
   border: 1px solid transparent;
   border-radius: 4px;
 }
@@ -5045,7 +5044,7 @@ a.thumbnail.active {
   margin-bottom: 0;
 }
 .alert > p + p {
-  margin-top: 5px;
+  margin-top: 0px;
 }
 .alert-dismissable,
 .alert-dismissible {

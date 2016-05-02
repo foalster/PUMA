@@ -90,17 +90,14 @@ nav ul a:hover{
 
 .dropdown{
     float: right;
+    margin-right: 18%;
     color:#fff;
     display:block;
     padding:10px;
     text-decoration:none;
 }
 
-.dropdown button:hover {
-    background-color:#5b90db;
-    text-decoration:none;
-}
-
-.dropdown button{
-    background-color: #3080db;
+.dropdown-menu{
+    float: right;
+    margin-right: 8%
 }

@@ -30,7 +30,7 @@
          <script  type="text/javascript">
                             function reply(clicked_id){
                                 idSeleccionada = clicked_id;
-                                alert(idSeleccionada);
+                                //alert(idSeleccionada);
                                 //Servlet.start(clicked_id);
                     
                 }
@@ -46,13 +46,14 @@
             <nav>
                 <ul>
                     <li><a href="index.jsp">PUMA</a></li>
+                    
                     <div class="dropdown">
                         <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">
                             <%=usuario%>
                             <span class="caret"></span></button>
                         <ul class="dropdown-menu">
-                            <li><a href="#">Administrar cuenta</a></li>
-                            <li><a href="#">Cerrar Sesión</a></li>
+                            <li><a href="AdministrarLaCuenta.jsp">Administrar cuenta</a></li>
+                            <li><a href="CerrarSesionC">Cerrar Sesión</a></li>
                         </ul>
                     </div>
 
@@ -114,16 +115,5 @@
     <form action="">
     <input type="hidden" name="hidden" value=""idSeleccionada >
     <input type="submit" value="submit"></form>
-    
-    <div class = "container">
-            <div class="wrapper">
-                <form method="post" action="CrearObjeto">
-                    <h1 class="form-signin-heading">Crear Objeto</h1>
-                    Marca: <input type="text" name="marca"/><br/>
-                    Modelo: <input type="text" name="modelo"/><br/>
-                    <input type="submit" value="Crear"/>
-                </form>
-            </div>
-        </div>
     </body>
 </html>

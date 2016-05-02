@@ -136,6 +136,20 @@ public class Conexion {
         }
         return usuarios;
     }
+    public Usuario getUsuario(String username) throws Exception{
+        Usuario u = new Usuario();
+        try{
+            stmt = con.createStatement();
+            rs = stmt.executeQuery("SELECT idUsuario FROM USUARIO WHERE usuario = '" + username + "'");
+            while(rs.next()){
+                u.setIdUsuario(rs.getInt(1));
+            }
+        }catch(Exception ex){
+            System.out.println("Error al recuperar los datos de la entidad usuario "
+                    + ex.getMessage());
+        }
+        return u;
+    }
     
      public LinkedList<Calculadora> getCalculadoras()
    {
@@ -208,9 +222,9 @@ public class Conexion {
         return true;
     }
     
-    public boolean crear(int id, String marca, String modelo){
+    public boolean crear(String marca, String modelo, int idUsuario, String tipo){
         try {
-            String query = "INSERT INTO calculadora VALUES('"+marca+"','"+modelo+"',true);";
+            String query = "INSERT INTO calculadora (marca, modelo, disponible, idprestamista, idtipo) VALUES('"+marca+"','"+modelo+"',TRUE," + idUsuario + "," + tipo + ");";
             stmt.executeUpdate(query);
             return true;
         }  catch (Exception ex) {
@@ -264,7 +278,7 @@ public class Conexion {
         return b;
     }
     
-    public ArrayList getUsuario(String idUsuario) throws SQLException {
+    public ArrayList getUsuarioId(String idUsuario) throws SQLException {
         ArrayList usuarios = new ArrayList();
         try {
             PreparedStatement ps = con.prepareStatement("SELECT idUsuario From Usuario Where idUsuario = " + idUsuario);

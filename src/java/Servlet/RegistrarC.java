@@ -21,7 +21,7 @@ import javax.servlet.http.HttpSession;
  *
  * @author Foalster
  */
-public class Registrar extends HttpServlet {
+public class RegistrarC extends HttpServlet {
 
     Conexion co = new Conexion();
 
@@ -157,7 +157,7 @@ public class Registrar extends HttpServlet {
             try {
                 processRequest(request, response);
             } catch (Exception ex) {
-                Logger.getLogger(Registrar.class.getName()).log(Level.SEVERE, null, ex);
+                Logger.getLogger(RegistrarC.class.getName()).log(Level.SEVERE, null, ex);
             }
         }
 
@@ -176,7 +176,7 @@ public class Registrar extends HttpServlet {
             try {
                 processRequest(request, response);
             } catch (Exception ex) {
-                Logger.getLogger(Registrar.class.getName()).log(Level.SEVERE, null, ex);
+                Logger.getLogger(RegistrarC.class.getName()).log(Level.SEVERE, null, ex);
             }
         }
 
